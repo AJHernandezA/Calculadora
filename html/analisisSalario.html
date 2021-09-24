@@ -5,13 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analisis Salarial</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../css/assets/squarespace-brands.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Salarios</h1>
+    <header class="nav-bar">
+        <nav>
+            <div>
+                <a href="../index.html"><img class="js-challenge" src="../css/assets/logoJS.jpg" alt=""></a>
+            </div>
+            <a class="user" href="https://www.linkedin.com/in/adolfo-jose-hernandezap/" target="_blank">@AJHernandezA</a>
+        </nav>
     </header>
-    
-    
+    <main>
+        <a class="home-btn" href="../index.html">HOME</a>
+        <section class="main-section main-section--inside">
+            <header>
+                <h1>Salarios</h1>
+            </header>
+        </section>
+        <section class="nav-works nav-works--inside">
+            <div class="card">
+                <div class="card__item cal" onclick="location.href='../html/figuras.html'">
+                    <img src="../css/assets/circle.png" alt="">
+                    <div>
+                        <header>
+                            <h4>TALLER #1</h4>
+                            <h2>Figuras Geometricas</h2>
+                        </header>
+                        <p>Calculo básicos para Cuadrados, Triangulos y Circulos.</p>
+                    </div>
+                </div>
+                <div class="card__item cal" onclick="location.href='../html/PreciosDescuentos.html'">
+                    <img src="../css/assets/price.png" alt="">
+                    <div>
+                        <header>
+                            <h4>Calculadora #2</h4>
+                            <h2>Discount Prices</h2>
+                        </header>
+                        <p>Calculo básicos para precios, descuentos y cupones de pago.</p>
+                    </div>
+                </div>
+                <div class="card__item cal" onclick="location.href='../html/PromedioModaMediana.html'">
+                    <img src="../css/assets/discount.png" alt="">
+                    <div>
+                        <header>
+                            <h4>Calculadora #3</h4>
+                            <h2>Media, Moda y Mediana</h2>
+                        </header>
+                        <p>Calculos básicos y avanzados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
     <script src="../js/salario.js"></script>
     <script src="../js/analisisSalario.js"></script>
 </body>
