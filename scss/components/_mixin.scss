@@ -1,0 +1,14 @@
+@mixin homeBtn {
+        display: none;
+        position: fixed;
+        right: 0;
+        top: 10px;
+        background: $negroL;
+        font-size: 2.4rem;
+        text-decoration: none;
+        font-weight: bold;
+        color: $yellowL;
+        padding: 20px 30px 20px 20px;
+        transform: rotate(-90deg) translateX(0);
+        transition: all 0.5s;
+}

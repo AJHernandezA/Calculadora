@@ -1,0 +1,415 @@
+@import "components/variables";
+@import "components/mixin";
+
+
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-family: "Open Sans", sans-serif;
+    color: $negroL;
+    position: relative;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Poppins", sans-serif;
+  }
+
+  h1 {
+    font-size: 3.6rem;
+    line-height: 5.4rem;
+  }
+
+  h2, h3 {
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+  }
+
+  *::before,*::after {
+    box-sizing: border-box;
+  }
+
+/*********************** HOME-NAV  *********/
+nav {
+  height: 100px;
+  width: 100%;
+  background-color: #090909;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+nav .js-challenge {
+  width: 100px;
+  height: 100px;
+}
+
+nav a.user {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color:$yellowL;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+nav a.user::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  display: block;
+  background: $yellowL;
+  transition: 300ms;
+}
+
+nav a.user:hover::after {
+  width: 100%;
+}
+
+/* nav min 1024px*/
+@media (min-width: 1024px) {
+
+  body {
+      display: flex;
+  }
+  h1 {
+      font-size: 4.8rem;
+      line-height: 7.2rem;
+  }
+
+  .nav-bar nav {
+    position: fixed;
+    z-index: 50;
+    height: 100vh;
+    width: 100px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+  .nav-bar nav div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .nav-bar nav a.user {
+    transform: rotate(-90deg) translate(-100px, 0px);
+    font-size: 1.8rem;
+  }
+}
+
+/**main**/
+  main .home-btn{
+   @include homeBtn
+  }
+  .main-section {
+    padding: 50px 30px;
+  }
+  main .main-title{
+    padding: 50px 30px;
+    display: block;
+  }
+  main .main-title header h1{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color: #32321A;
+  }
+  main .main-title p{
+    width: fit-content;
+    font-size: 2rem;
+    padding: 5px 10px;
+    border: 5px solid $negroL;
+    background-color: $yellowL;
+    border-radius: 5%;
+  }
+  main .main-title p:hover{
+    background-color: $negroL;
+    color: $whiteL;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .main-section header h1 {
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+  .main-section .taller header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-works .card:hover {
+    background-color: $yellowL;
+  }
+  .nav-works .card:hover .card__item {
+    background-color: $negroL;
+    color: $whiteL;
+  }
+  .nav-works .card:hover .card__item img {
+    filter: invert(1);
+  }
+  .nav-works .card .card__item {
+    background-color: $yellowL;
+    padding: 15px 10px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 5px solid $negroL;
+    transition: all 0.3s;
+  }
+  .nav-works .card .card__item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+  }
+  .nav-works .card .card__item h4 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: normal;
+  }
+  
+  .nav-works .card .card__item h2 {
+    margin-bottom: 15px;
+  }
+  .nav-works .card .card__item:nth-child(1) {
+    border-top: 5px solid $negroL;
+  }
+  .nav-works .card .card__item:nth-child(4) {
+    border-bottom: 0px solid $negroL;
+  }
+  .nav-works .card .card__item:hover {
+    background-color: $yellowL;
+    transform: translateX(-10px);
+    border: 5px solid $yellowL;
+    color: $negroL;
+  }
+  .nav-works .card .card__item:hover img {
+    filter: invert(0);
+  }
+  @media (min-width: 1024px) {
+    main {
+      display: block;
+      margin-left: 100px;
+      width: 100%;
+      height: 100%;
+    }
+    main .home-btn {
+      display: inline-block;
+    }
+    main .home-btn:hover {
+      transform: rotate(-90deg) translateX(-10px);
+      background-color: $yellowL;
+      color: $negroL;
+    }
+    .main-title {
+      width: 100%;
+      height: 20%;
+    }
+    .nav-works {
+      width: 100%;
+    }
+    .nav-works .card {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background-color: $negroL;
+    }
+    .nav-works .card:hover {
+      background-color:$yellowL;
+    }
+    .nav-works .card:hover .card__item {
+      background-color: $negroL;
+      color: $whiteL;
+    }
+    .nav-works .card:hover .card__item img {
+      filter: invert(1);
+    }
+    .nav-works .card a {
+      flex-grow: 1;
+      color: initial;
+      text-decoration: none;
+    }
+    .nav-works .card .card__item {
+      height: 100%;
+      border-left: 5px solid $negroL;
+      border-bottom: 5px solid $negroL;
+      transition: all 0.3s;
+    }
+    .nav-works .card .card__item:nth-child(4) {
+      border-bottom: 5px solid $negroL;
+    }
+    .nav-works .card .card__item:hover {
+      background-color: $yellowL;
+      transform: translateX(-10px);
+      border: 5px solid $yellowL;
+      color: $negroL;
+    }
+    .nav-works .card .card__item:hover img {
+      filter: invert(0);
+    }
+  }
+
+/*********CALCULADORAS INSIDE***********/  
+
+
+/** ALL**/
+  @media (min-width: 1024px) {
+    .main-section--inside {
+      width: 100%;
+      margin-bottom: 100px;
+    }
+    .nav-works--inside {
+      width: calc(100% - 100px);
+      // margin-left: 100px;
+      position: fixed;
+      z-index: 50;
+      bottom: 0;
+    }
+    .nav-works--inside .card {
+      height: auto;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+    .nav-works--inside .card .card__item {
+      width: 33.3%;
+    }
+    .nav-works .card .cal {
+      border-top: 5px solid $negroL;
+      min-height: 100px;
+    }
+    .nav-works--inside .card .card__item:nth-child(1) {
+      border-left: 0px solid $negroL;
+    }
+    .nav-works--inside .card .card__item p, .nav-works--inside .card .card__item h4 {
+      display: none;
+    }
+    .nav-works--inside .card .card__item h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0;
+    }
+    .nav-works--inside .card .card__item:hover {
+      background-color: $yellowL;
+      transform: translateY(-10px);
+      border: 5px solid $yellowL;
+      color: $negroL;
+    }
+    .nav-works--inside .card .card__item:hover img {
+      filter: invert(0);
+    }
+  }
+  @media (min-width: 1200px) {
+    .nav-works--inside .card .card__item h2 {
+      font-size: 2.4rem;
+    }
+  }
+  .taller-card {
+    margin-bottom: 40px;
+  }
+  .taller-card img {
+    width: 55px;
+    height: 55px;
+  }
+  .taller-card img:nth-of-type(2) {
+    margin-top: 30px;
+  }
+  .taller-card h2 {
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+  .taller-card form {
+    font-size: 1.4rem;
+  }
+  .taller-card form label, .taller-card form input {
+    display: inline-block;
+    width: 100%;
+  }
+  .taller-card form .form-group {
+    margin-bottom: 15px;
+  }
+  .taller-card form .form-group input {
+    padding-left: 10px;
+    margin: 5px 0;
+    height: 35px;
+    border: 1px solid $negroL;
+  }
+  .taller-card form p {
+    color: #FF3535;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+  .taller-card form .btn-form {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: $grennL;
+    border: 2px solid $negroL;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    padding: 5px;
+    transition: all 0.2s;
+  }
+  .taller-card form .btn-form:hover {
+    box-shadow: 1px 1px 10px #3d501b;
+  }
+  .taller-card form .btn-form--alert {
+    background-color: #ffbf35;
+  }
+  .taller-card form .btn-form--alert:hover {
+    box-shadow: 1px 1px 10px #50371b;
+  }
+  
+  @media (min-width: 1024px) {
+    .taller {
+      display: flex;
+    }
+    .taller .taller-card {
+      padding: 20px;
+      width: 33.3%;
+    }
+    .taller .taller-card:nth-of-type(1) {
+      padding-left: 0;
+    }
+    .taller .taller-card:nth-of-type(3) {
+      padding-right: 0;
+    }
+  }
+
+/*figuras*/
+.answer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.answer-container {
+  width: 300px;
+  height: 60px;
+  border: 2px solid $negroL;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.answer-container p {
+  padding: 20px;
+  font-size: 2.0rem;
+  font-weight: lighter;
+  text-align: center;
+  line-height:30px ;
+}
+.unit {
+  position: relative;
+}
+.unit span {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  font-size: 1.4rem;
+}
