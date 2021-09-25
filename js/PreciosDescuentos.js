@@ -1,64 +1,42 @@
-//  const precioOriginal = 100;
-//  const descuento = 15;
+const coupons = ["holamundo", "enigma42", "platzi"];
+const calcularPrecioConDescuento = (precio, descuento) => ((100 - descuento) / 100) * precio;
 
-//  const PorcentajePrecioConDescuento = 100 - descuento;
-//  const precioConDescuento = (precioOriginal*PorcentajePrecioConDescuento)/100;
-
-//  console.log({
-//      precioOriginal,
-//      descuento,
-//      PorcentajePrecioConDescuento,
-//      precioConDescuento
-//  })
-
-
-
-const CalcularPrecioConDescuento = (precio, descuento) =>{
-     const PorcentajePrecioConDescuento = 100 - descuento;
-     const precioConDescuento = (precio * PorcentajePrecioConDescuento ) / 100;
-     return precioConDescuento;
- }
-
- const valueOfDiscount = (valuePrice, valueDiscount) => {
-    const porcerntajeDescontado = 100 - valueDiscount;
-    const precioConDescuento = (valuePrice * porcerntajeDescontado) / 100;
-
-    let valorDescontado = valuePrice - precioConDescuento;
-    return valorDescontado
-};
-
-const verificationCupon = function () {
-    const cupons = [10, 25, 50];
-    const cupon = document.getElementById("cupons");
-    const valueCupon = parseInt(cupon.value);
-    if (valueCupon === cupons[0]) {
-        return cupons[0];
-    } else if (valueCupon === cupons[1]) {
-        return cupons[1];
-    } else if (valueCupon === cupons[2]) {
-        return cupons[2];
+const calcularConDescuentoMasCupon = (precio, descuento, cupon) => ((100 - descuento - cupon) / 100) * precio;
+  
+function mostrarNuevoPrecio() {
+  const inputPrecio = document.getElementById("input-price");
+  const inputDescuento = document.getElementById("input-discount");
+  const inputCupon = document.getElementById("input-coupon");
+  const textResultado = document.getElementById("answer");
+  let precioValue = inputPrecio.value;
+  let descuentoValue = inputDescuento.value;
+  let userInputCupon = inputCupon.value;
+  if (precioValue != 0 && descuentoValue != 0) {
+    let resultado = 0;
+    if (userInputCupon != "") {
+      let cuponValue = 0;
+      userInputCupon = userInputCupon.toLowerCase();
+      // Validar cual cupon es
+      if (!coupons.includes(userInputCupon)) {
+        alert(`The coupon "${userInputCupon}" is invalid`);
+      } else if (userInputCupon === coupons[0]) {
+        cuponValue = 5;
+      } else if (userInputCupon === coupons[1]) {
+        cuponValue = 10;
+      } else if (userInputCupon === coupons[2]) {
+        cuponValue = 15;
+      }
+      resultado = calcularConDescuentoMasCupon(
+        precioValue,
+        descuentoValue,
+        cuponValue
+      );
     } else {
-        return 0
+      resultado = calcularPrecioConDescuento(precioValue, descuentoValue);
     }
+    resultado = resultado.toFixed(2);
+    textResultado.innerHTML = `Discounted price: <span>$${resultado}</span>`;
+  } else {
+    textResultado.innerHTML = `Missing data`;
+  }
 }
-
-const calcularDescuentoPrecio = () => {
-     const inputPrice = document.getElementById("inputPrice");
-     const inputDiscount = document.getElementById("inputDiscount");
-     const valuePrice = parseInt(inputPrice.value);
-     const valueDiscount = parseInt(inputDiscount.value);
-
-     const verificationCupons = verificationCupon();
-     const discountCupon = valueDiscount + verificationCupons;
-
-     const precioConDescuento = CalcularPrecioConDescuento(valuePrice,discountCupon);
-     const valorDiscount = valueOfDiscount(valuePrice, discountCupon);
-
-
-     const resultPrice = document.getElementById("ResultPrice")
-     const ahorro = document.getElementById("ahorro")
-    
-     resultPrice.innerHTML="El precio con descuento es: $ " + precioConDescuento;
-     ahorro.innerHTML = "Usted ahorro: $ " + valorDiscount
-
-} 

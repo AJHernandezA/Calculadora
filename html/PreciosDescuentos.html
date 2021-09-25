@@ -29,30 +29,36 @@
                     Discounted Prices
                 </h1>
             </header>    
-            <div class="taller">
+            <div class="taller-dis">
                 <section id="precios-descuentos" class="taller-card">
-                    <img src="../css/assets/price.png" alt="">
-                    <h2>Cálculos</h2>
-                    <form>
-                        <div class="form-group">
-                            <label for="inputPrice">Escribe el <strong>Precio</strong> de tu producto</label>
-                            <input type="number" id="inputPrice" min="1">
-                            <p class="error" id="errorPrice"></p>
+                    <section class="box">
+                        <img src="../css/assets/discount.png" alt="Imagen descuento" />
+                        <form class="form-container">
+                            <label for="price">What's the price? </label>
+                            <input type="number" name="price" id="input-price" class="input" min="1"/>
+                            <label for="discount">What is the discount? (%) </label>
+                            <input type="number" name="discount" id="input-discount" class="input" min="1"/>
+                          <div class="cupon-container">
+                            <label for="coupon">Coupon: </label>
+                            <input type="text" name="coupon" id="input-coupon" class="input" placeholder="Example: 'PLATZI'"/>
+                          </div>
+                          <button type="button" class="btn" onclick="mostrarNuevoPrecio()"> Calculate </button>
+                        </form>
+                        <div class="answer-container">
+                          <p class="answer-text" id="answer">Final price</p>
                         </div>
-                        <div class="form-group">
-                            <label for="inputDiscount">Escribe el <strong>Descuento</strong> de tu producto</label>
-                            <input type="number" id="inputDiscount" min="0">
-                            <p class="error" id="errorDiscount"></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPrice">Escribe el <strong>Cupón</strong> si tienes</label>
-                            <input type="text" id="inputCoupon">
-                            <p class="error" id="errorCoupon"></p>
-                        </div>
-                        <button class="btn-form" type="button" onclick="onClickButtonPriceDiscount();"> Calcuar precio con descuento</button>
-                    </form>
+                        <div class="msg-coupon">Coupon "PLATZI" ➡ +15% dsct</div>
+                      </section>
                 </section>
             </div>
+            <section class="taller-card">
+                <h2>Lista de Cupones disponibles</h2>
+                <ul>
+                    <li>holamundo</li>
+                    <li>enigma42</li>
+                    <li>platzi</li>
+                </ul>
+            </section>
         </section>
         <section class="nav-works nav-works--inside">
             <div class="card">

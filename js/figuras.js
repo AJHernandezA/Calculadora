@@ -108,7 +108,7 @@ function checkInputsCirculo(l1) {
 const renderResultSquare = (r, dimension) =>{
     const resultado = document.getElementById("respuesta-cuadrado");
     const unit = dimension == 'Area' ? 'cm<span>2</span>' : 'cm';
-    resultado.innerHTML = `El ${dimension} del cuadrado es: <strong class="unit"> ${r} ${unit}</strong>`;
+    resultado.innerHTML = `El ${dimension} del cuadrado <br>es: <strong class="unit"> ${r} ${unit}</strong>`;
 }
 
 function calcularPerimetroCuadrado() {
@@ -137,7 +137,7 @@ function calcularAreaCuadrado() {
 const renderResultTriangulo = (r, dimension) =>{
     const resultado = document.getElementById("respuesta-triangulo");
     const unit = dimension == 'Area' ? 'cm<span>2</span>' : 'cm';
-    resultado.innerHTML = `El ${dimension} del triangulo es: <strong class="unit"> ${r} ${unit}</strong>`;
+    resultado.innerHTML = `El ${dimension} del triangulo <br> es: <strong class="unit"> ${r} ${unit}</strong>`;
 }
 
 function calcularAreaTriangulo() {

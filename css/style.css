@@ -431,7 +431,7 @@ main .main-title p:hover {
 
 .taller-card h2 {
   margin-top: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .taller-card form {
@@ -479,15 +479,6 @@ main .main-title p:hover {
 .taller-card form .btn-form:hover {
   -webkit-box-shadow: 1px 1px 10px #3d501b;
           box-shadow: 1px 1px 10px #3d501b;
-}
-
-.taller-card form .btn-form--alert {
-  background-color: #ffbf35;
-}
-
-.taller-card form .btn-form--alert:hover {
-  -webkit-box-shadow: 1px 1px 10px #50371b;
-          box-shadow: 1px 1px 10px #50371b;
 }
 
 @media (min-width: 1024px) {
@@ -556,4 +547,163 @@ main .main-title p:hover {
   top: -5px;
   right: -10px;
   font-size: 1.4rem;
+}
+
+/*Descuentos*/
+.taller-dis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .box {
+  min-width: 400px;
+  padding: 30px 40px 35px;
+  background-color: rgba(0, 0, 0, 0.01);
+  border: 6px solid black;
+  border-radius: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.box img {
+  width: 100px;
+  height: auto;
+  margin: 10px 0 20px;
+}
+
+.form-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form-container label,
+.form-container input {
+  margin-bottom: 10px;
+}
+
+.form-container input {
+  color: #3C4E73;
+  font-size: 1.8rem;
+  border: 1px solid #3C4E73;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 4px 8px;
+}
+
+/* Del icons in input number */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.cupon-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+::-webkit-input-placeholder {
+  font-size: 1.5rem;
+}
+
+::-moz-placeholder {
+  font-size: 1.5rem;
+}
+
+:-ms-input-placeholder {
+  font-size: 1.5rem;
+}
+
+::-ms-input-placeholder {
+  font-size: 1.5rem;
+}
+
+::placeholder {
+  font-size: 1.5rem;
+}
+
+.btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 45px;
+  color: #3C4E73;
+  font-size: 1.7rem;
+  font-weight: bold;
+  background-color: #DEF2C9;
+  border: 1px solid #3C4E73;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 10px 0 30px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+li {
+  font-size: small;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #3C4E73;
+  border: none;
+}
+
+.msg-coupon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 6px;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  border: 0.5px solid #DEF2C9;
+  color: #020659;
+  background-color: #F2E852;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
 }

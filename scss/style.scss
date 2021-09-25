@@ -319,7 +319,7 @@ nav a.user:hover::after {
   }
   .taller-card h2 {
     margin-top: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
   .taller-card form {
     font-size: 1.4rem;
@@ -359,12 +359,7 @@ nav a.user:hover::after {
   .taller-card form .btn-form:hover {
     box-shadow: 1px 1px 10px #3d501b;
   }
-  .taller-card form .btn-form--alert {
-    background-color: #ffbf35;
-  }
-  .taller-card form .btn-form--alert:hover {
-    box-shadow: 1px 1px 10px #50371b;
-  }
+
   
   @media (min-width: 1024px) {
     .taller {
@@ -412,4 +407,108 @@ nav a.user:hover::after {
   top: -5px;
   right: -10px;
   font-size: 1.4rem;
+}
+
+/*Descuentos*/
+.taller-dis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .box {
+  min-width: 400px;
+  padding: 30px 40px 35px;
+  background-color: rgba(0, 0, 0, 0.01);
+  border: 6px solid black;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.box img {
+  width: 100px;
+  height: auto;
+  margin: 10px 0 20px;
+}
+
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container label,
+.form-container input {
+  margin-bottom: 10px;
+}
+
+.form-container input {
+  color: $negroL;
+  font-size: 1.8rem;
+  border: 1px solid $negroL;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 4px 8px;
+}
+/* Del icons in input number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.cupon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+::placeholder {
+  font-size: 1.5rem;
+}
+
+.btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  color: $negroL;
+  font-size: 1.7rem;
+  font-weight: bold;
+  background-color: $grennL;
+  border: 1px solid $negroL;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 10px 0 30px;
+  transition: all 0.3s;
+}
+li{
+  font-size: small;
+}
+.btn:hover {
+  color: #fff;
+  background-color: $negroL;
+  border: none;
+}
+.msg-coupon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 6px;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  border: 0.5px solid #DEF2C9;
+  color: #020659;
+  background-color: #F2E852;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
 }
