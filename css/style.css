@@ -515,7 +515,10 @@ main .main-title p:hover {
 }
 
 .answer-container {
-  width: 300px;
+  min-width: 300px;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   height: 60px;
   border: 2px solid #3C4E73;
   border-radius: 5px;
@@ -781,4 +784,150 @@ select:focus + .focus {
   bottom: -1px;
   border: 2px solid #0597F2;
   border-radius: inherit;
+}
+
+/*INVERSIONES*/
+.investment {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  font-size: 1.7rem;
+}
+
+main .box-contents {
+  margin: 130px 50px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.box-contents .titles {
+  min-width: 560px;
+  height: 80px;
+  margin: 0px 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 4px solid #3C4E73;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.box-contents .title-texts {
+  font-size: 4rem;
+  color: #3C4E73;
+  font-family: "Rakkas", cursive;
+}
+
+.form-containers {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.group-containers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 98%;
+}
+
+.label-input-containers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form-containers label,
+.form-containers input,
+.form-containers select {
+  margin-bottom: 10px;
+}
+
+.form-containers input,
+.form-containers select {
+  color: #3C4E73;
+  font-size: 1.8rem;
+  border: 2px solid #3C4E73;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 4px 8px;
+}
+
+.btn-containers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.btns {
+  min-width: 270px;
+  max-width: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 45px;
+  color: #3C4E73;
+  font-size: 1.7rem;
+  font-weight: bold;
+  background-color: #DEF2C9;
+  border: 1px solid #3C4E73;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 10px 0 30px;
 }

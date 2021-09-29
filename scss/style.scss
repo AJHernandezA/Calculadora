@@ -384,7 +384,8 @@ nav a.user:hover::after {
   align-items: center;
 }
 .answer-container {
-  width: 300px;
+  min-width: 300px;
+  max-width: fit-content;
   height: 60px;
   border: 2px solid $negroL;
   border-radius: 5px;
@@ -573,3 +574,97 @@ select:focus + .focus {
   border: 2px solid #0597F2;
   border-radius: inherit;
 }
+/*INVERSIONES*/
+
+.investment{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 1.7rem;
+}
+main .box-contents {
+  margin: 130px 50px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.box-contents .titles {
+  min-width: 560px;
+  height: 80px;
+  margin: 0px 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 4px solid $negroL;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box-contents .title-texts {
+  font-size: 4rem;
+  color: $negroL;
+  font-family: "Rakkas", cursive;
+}
+
+.form-containers {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+.group-containers {
+  display: flex;
+  justify-content: space-between;
+  width: 98%;
+}
+.label-input-containers {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-containers label,
+.form-containers input,
+.form-containers select {
+  margin-bottom: 10px;
+}
+
+.form-containers input,
+.form-containers select {
+  color: $negroL;
+  font-size: 1.8rem;
+  border: 2px solid $negroL;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 4px 8px;
+}
+
+.btn-containers {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.btns {
+  min-width: 270px;
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  color: #3C4E73;
+  font-size: 1.7rem;
+  font-weight: bold;
+  background-color: #DEF2C9;
+  border: 1px solid #3C4E73;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 10px 0 30px;
+}
+
+
+
