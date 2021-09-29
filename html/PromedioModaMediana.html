@@ -26,6 +26,49 @@
             <header>
                 <h1>Estadistica</h1>
             </header>
+            <div class="taller">
+                <section class="taller-card">
+                    <img src="../css/assets/file-excel-regular.svg" alt="">
+                    <header>
+                        <h2>Cálculos:</h2>
+                        <div class="select">
+                            <select class="" id="formulaSelect" name="select" onchange="switchFormula();">
+                                <option value="1" selected>Media Aritmetica</option>
+                                <option value="2">Media Armonica</option>
+                                <option value="3">Media Geometrica</option>
+                                <option value="4">Moda</option>
+                                <option value="5">Mediana</option>
+                            </select>
+                        </div>
+                    </header>
+                    <form id="form">
+                        <div class="form-group">
+                            <label for="inputPrice">Escribe un <strong> Nuevo Valor</strong> a la lista</label>
+                            <input type="number" id="addValue">
+                            <p class="error" id="errorAddValue"></p>
+                            <button class="btn-form" type="button" onclick="addListNumber();" min="0"> Agregar a la lista</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDiscount">Escribe la <strong>Posición </strong> del valor a Eliminar de la lista</label>
+                            <input type="number" id="removeValue">
+                            <p class="error" id="errorRemoveValue"></p>
+                            <button class="btn-form btn-form--alert" type="button" onclick="removeListNumber();"> Quitar de la lista</button>
+                        </div>
+                        <button class="btn-form" id="btn-render" type="button" onclick="renderMediaAritmetica();"> Calcular Media Aritmetica</button>
+                        <p class="error" id="errorList"></p>
+                        <div class="answer">
+                            <div class="answer-container">
+                                <span id="respuesta">Result</span>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+                <section class="taller-card">
+                    <h2>Lista de Valores cargados</h2>
+                    <ul id="list-values">
+                    </ul>
+                </section>
+            </div>
         </section>
         <section class="nav-works nav-works--inside">
             <div class="card">

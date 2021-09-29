@@ -1,131 +1,224 @@
-const lista1 = [
-    100,
-    200,
-    300,
-    400,
-    100,
-    200,
-    200,
-    500,
-    700,
-]
+list = [];
 
-/****** MEDIA ARITMETICA *****************/
+function cleanError (id) {
+    const errors = document.getElementById(id).querySelectorAll('.error');
+    for (e of errors) {
+        e.innerHTML = '';
+    }
+}
 
-const calcularMediaAritmetica = (lista) => {
-    //let sumaLista = 0;
+function renderList(list) {
+    l = document.getElementById('list-values');
+    l.innerHTML = '';
 
-    // for (let i = 0; i < lista.length; i++) {
-    //     sumaLista = sumaLista + lista[i];
-    // }
+    list.forEach((element, index) => {
+        const listElement = document.createElement('li');
+        listElement.innerHTML = `<strong>${index + 1} -</strong> ${element}`;
+
+        l.appendChild(listElement);
+    });
+}
+
+function addListNumber() {
+    cleanError('form');
+    const element = document.getElementById('addValue');
+    const value = parseInt(element.value);
+    element.value = '';
+
+    if (Number.isNaN(value) || value < 0) {
+        e = document.getElementById('errorAddValue');
+        e.innerHTML = 'Ingrese un valor válido para la lista de números';
+        return false;
+    }
     
-    const sumaLista = lista.reduce(
-        function (valorAcumulado = 0, nuevoElemento){
+    list.push(value);
+    renderList(list);
+}
+
+function removeListNumber() {
+    cleanError('form');
+    const element = document.getElementById('removeValue');
+    let value = parseInt(element.value);
+    element.value = '';
+
+    if (Number.isNaN(value) || value <= 0) {
+        e = document.getElementById('errorRemoveValue');
+        e.innerHTML = 'Ingrese una posición válida de la lista de números';
+        return false;
+    }
+
+    value -= 1;
+
+    list.splice(value, 1);
+    renderList(list);
+}
+
+function switchFormula () {
+    const f = document.getElementById('formulaSelect').value;
+    const btn = document.getElementById('btn-render');
+    cleanError('form');
+    switch (f) {
+        case '1':
+            btn.setAttribute('onclick', 'renderMediaAritmetica();');
+            btn.innerText = 'Calcular Media Aritmetica'
+            break;
+        case '2':
+            btn.setAttribute('onclick', 'renderMediaArmonica();');
+            btn.innerText = 'Calcular Media Armonica'
+            break;
+        case '3':
+            btn.setAttribute('onclick', 'renderMediaGeometrica();');
+            btn.innerText = 'Calcular Media Geometrica'
+            break;
+        case '4':
+            btn.setAttribute('onclick', 'renderModa();');
+            btn.innerText = 'Calcular Moda'
+            break;
+        case '5':
+            btn.setAttribute('onclick', 'renderMediana();');
+            btn.innerText = 'Calcular Mediana'
+            break;
+    }
+}
+
+function checkList() {
+    if (list.length == 0) {
+        e = document.getElementById('errorList');
+        e.innerHTML = '<strong>Ingrese valores en la Lista.</strong>';
+        return false;
+    }
+    return true;
+}
+// Promedios
+
+function calcularMediaAritmetica(list) {
+    const sumaList = list.reduce(
+        (valorAcumulado, nuevoElemento) => {
             return valorAcumulado + nuevoElemento;
+        }, 0
+    );
+
+    const mediaAritmetica = sumaList / list.length;
+    return parseFloat(mediaAritmetica.toFixed(2))
+}
+
+function renderMediaAritmetica() {
+    
+    if (checkList(list)){
+        const r = calcularMediaAritmetica(list);
+        const resultado = document.getElementById("respuesta");
+        resultado.innerHTML = `La Media Aritmetica es: <strong class="unit"> ${r}</strong>`;
+    }
+}
+
+function calcularMediaGeometrica (list) {
+    const multiplicacionList = list.reduce(
+        (valorAcumulado, nuevoElemento) => {
+            return valorAcumulado * nuevoElemento;
+        }, 1
+    );
+
+    const mediaGeometrica = multiplicacionList ** (1/list.length);
+    return parseFloat(mediaGeometrica.toFixed(3));
+}
+
+function renderMediaGeometrica() {
+    if (checkList(list)){
+        const r = calcularMediaGeometrica(list);
+        const resultado = document.getElementById("respuesta");
+        resultado.innerHTML = `La Media Geometrica es: <strong class="unit"> ${r}</strong>`;
+    }
+}
+
+function calcularMediaArmonica (list) {
+    const sumaList = list.reduce(
+        (valorAcumulado, nuevoElemento) => valorAcumulado + (1 / nuevoElemento), 0
+    );
+
+    console.log(sumaList);
+
+    const mediaArmonica = list.length / sumaList;
+    return parseFloat(mediaArmonica.toFixed(3));
+}
+
+function renderMediaArmonica() {
+    if (checkList(list)){
+        const r = calcularMediaArmonica(list);
+        const resultado = document.getElementById("respuesta");
+        resultado.innerHTML = `La Media Armonica es: <strong class="unit"> ${r}</strong>`;
+    }
+}
+
+// Modas
+
+function calcularModa () {
+    const listaCount = {};
+
+    list.map(
+        function (e) {
+            if (listaCount[e]) {
+                listaCount[e] += 1;
+            } else {
+                listaCount[e] = 1;
+            }
+        }
+    );
+    
+    const listaArray = Object.entries(listaCount).sort(
+        function (valorAcumulado, nuevoValor) {
+            return valorAcumulado[1] - nuevoValor[1];
         }
     );
 
-    const promedioLista = sumaLista / lista.length;
-    
-    return promedioLista;
+    const moda = listaArray[listaArray.length - 1][0];
+    return moda;
 }
 
-/********* MEDIANA ******************/
+function renderModa() {
+    if (checkList(list)){
+        const r = calcularModa();
+        const resultado = document.getElementById("respuesta");
+        resultado.innerHTML = `La Moda es: <strong class="unit"> ${r}</strong>`;
+}}
 
-const ordenarLista = (lista) => {
-    const ordenada = lista.sort(function(a, b) {
-      return a - b;
-    });
-    return ordenada;
+// Mediana
+
+function esPar(value) {
+    return value % 2 === 0 ? true : false; 
 }
 
-const esPar = (numero) => {
-    if(numero % 2 === 0) {
-      return true;
-    }else {
-      return false;
-    }
-  }
 
-const calcularMediana = (lista) => {
-    const listaOrdenada = ordenarLista(lista);
-  
-    const mitadLista = parseInt(listaOrdenada.length / 2);
-  
-    let mediana;
-  
-    if(esPar(listaOrdenada.length)) {
-      const elemento1 = listaOrdenada[mitadLista - 1];
-      const elemento2 = listaOrdenada[mitadLista];
-  
-      const promedioElemento1y2 = calcularMediaAritmetica([elemento1, elemento2]);
-  
-      mediana = promedioElemento1y2;
-    } else{
-      mediana = listaOrdenada[mitadLista];
-    }
-    
-    return mediana;
-}
-
-//********* MODA ************/
-const lista1Count = {};
-
-lista1.map (
-    function(elemento){
-        if (lista1Count[elemento]){
-            lista1Count[elemento] = lista1Count[elemento]+1;
-        } else{
-            lista1Count[elemento]=1;
+function calcularMediana (lista) {
+    // Ordenamos la lista
+    const listaOrdenada = lista.sort( 
+        function(a, b) {
+            return a - b;
         }
+    )
+    
+    // Ubicamos elementos y calculamos
+    const mitadLista = parseInt(listaOrdenada.length / 2);
+
+    if (esPar(listaOrdenada.length)) {
+        // dos elementos
+        const elemento1 = listaOrdenada[mitadLista-1];
+        const elemento2 = listaOrdenada[mitadLista];
+
+        const mediana = calcularMediaAritmetica([elemento1, elemento2]);
+        return mediana;
+
+    } else {
+        // un elemento
+        const mediana = lista[mitadLista];
+        return mediana;
+
     }
-);
+}
 
-const lista1Array = Object.entries(lista1Count).sort(
-  function(valorAcumulado,nuevoValor){
-    return valorAcumulado[1] - nuevoValor[1];
-  }
-);
-
-const moda = lista1Array[lista1Array.length-1];
-
-/********* PROMEDIO PONDERADO */
-const notes = [
-  {
-      course: "Educación Física",
-      note: 10,
-      credit: 2,
-  },
-  {
-      course: "Programación",
-      note: 8,
-      credit: 5,
-  },
-  {
-      course: "Finanzas personales",
-      note: 7,
-      credit: 5,
-  },
-];
-
-const notesWithCredit = notes.map(function (noteObject) {
-  return noteObject.note * noteObject.credit;
-});
-
-const sumOfNotesWithCredit = notesWithCredit.reduce(
-  function (sum = 0, newVal) {
-      return sum + newVal;
-  }
-);
-
-const credits = notes.map(function (noteObject) {
-  return noteObject.credit;
-});
-
-const sumOfCredits = credits.reduce(
-  function (sum = 0, newVal) {
-      return sum + newVal;
-  }
-);
-
-const promedioPonderadoNotasConCreditos = sumOfNotesWithCredit / sumOfCredits;
+function renderMediana() {
+    if (checkList(list)){
+        r = calcularMediana(list);
+        const resultado = document.getElementById("respuesta");
+        resultado.innerHTML = `La Mediana es: <strong class="unit"> ${r}</strong>`;
+    }
+}
